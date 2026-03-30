@@ -1,51 +1,51 @@
 ---
-// Reemplazar con URLs de las fotos reales del Instagram @bistrocaferest
+// Replace with real photo URLs from @bistrocaferest Instagram
 const photos = [
   {
     src: "https://images.unsplash.com/photo-1565299507177-b0ac66763828?auto=format&fit=crop&w=700&q=80",
-    alt: "Plato Bistro Café",
+    alt: "Bistro Café dish",
   },
   {
     src: "https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?auto=format&fit=crop&w=700&q=80",
-    alt: "Pancakes Bistro Café",
+    alt: "Bistro Café pancakes",
   },
   {
     src: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=700&q=80",
-    alt: "Plato gourmet Bistro Café",
+    alt: "Bistro Café gourmet dish",
   },
   {
     src: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=700&q=80",
-    alt: "Brunch Bistro Café",
+    alt: "Bistro Café brunch",
   },
   {
     src: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=700&q=80",
-    alt: "Bowl Bistro Café",
+    alt: "Bistro Café bowl",
   },
   {
     src: "https://images.unsplash.com/photo-1533089860892-a7c6f0a88666?auto=format&fit=crop&w=700&q=80",
-    alt: "Spread de brunch Bistro Café",
+    alt: "Bistro Café brunch spread",
   },
   {
     src: "https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&w=700&q=80",
-    alt: "Desayuno Bistro Café",
+    alt: "Bistro Café breakfast",
   },
   {
     src: "https://images.unsplash.com/photo-1551218808-94e220e084d2?auto=format&fit=crop&w=700&q=80",
-    alt: "Huevos Bistro Café",
+    alt: "Bistro Café eggs",
   },
   {
     src: "https://images.unsplash.com/photo-1504973960431-1c467e159aa4?auto=format&fit=crop&w=700&q=80",
-    alt: "Comida Bistro Café",
+    alt: "Bistro Café food",
   },
 ];
 ---
 
-<section class="gallery" id="galeria">
+<section class="gallery" id="gallery">
   <div class="gallery-header reveal">
-    <span class="label">Galería</span>
-    <h2>Como se ve en Instagram.</h2>
+    <span class="label">Gallery</span>
+    <h2>As seen on Instagram.</h2>
     <p class="gallery-sub">
-      Más de 535K seguidores no pueden estar equivocados.
+      Over 535K followers can't be wrong.
     </p>
   </div>
 
@@ -57,7 +57,7 @@ const photos = [
           target="_blank"
           rel="noopener noreferrer"
           class={`gallery-item reveal reveal-delay-${(i % 4) + 1}`}
-          aria-label={`Ver ${photo.alt} en Instagram`}
+          aria-label={`View ${photo.alt} on Instagram`}
         >
           <img src={photo.src} alt={photo.alt} loading="lazy" />
           <div class="gallery-overlay">
@@ -104,7 +104,7 @@ const photos = [
         <circle cx="12" cy="12" r="4"></circle>
         <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"></circle>
       </svg>
-      Seguir @bistrocaferest
+      Follow @bistrocaferest
     </a>
   </div>
 </section>

@@ -6,8 +6,8 @@ const locations = [
     city: "Miami, FL 33132",
     phone: "(786) 533-3876",
     hours: [
-      { days: "Lun — Vie", time: "8:00am – 4:00pm" },
-      { days: "Sáb — Dom", time: "8:00am – 5:00pm" },
+      { days: "Mon — Fri", time: "8:00am – 4:00pm" },
+      { days: "Sat — Sun", time: "8:00am – 5:00pm" },
     ],
     mapsUrl: "https://maps.google.com/?q=1352+NE+1st+Ave+Miami+FL+33132",
     embedSrc:
@@ -19,8 +19,8 @@ const locations = [
     city: "Coral Gables, FL 33146",
     phone: null,
     hours: [
-      { days: "Lun — Vie", time: "8:00am – 4:00pm" },
-      { days: "Sáb — Dom", time: "8:00am – 5:00pm" },
+      { days: "Mon — Fri", time: "8:00am – 4:00pm" },
+      { days: "Sat — Sun", time: "8:00am – 5:00pm" },
     ],
     mapsUrl: "https://maps.google.com/?q=4155+Laguna+St+Coral+Gables+FL+33146",
     embedSrc:
@@ -29,11 +29,11 @@ const locations = [
 ];
 ---
 
-<section class="locations" id="ubicacion">
+<section class="locations" id="locations">
   <div class="locations-inner">
     <div class="locations-header reveal">
-      <span class="label">Visítanos</span>
-      <h2>Dos locaciones en Miami.</h2>
+      <span class="label">Visit Us</span>
+      <h2>Two locations in Miami.</h2>
     </div>
 
     <div class="locations-grid">
@@ -43,7 +43,7 @@ const locations = [
             <div class="location-map">
               <iframe
                 src={loc.embedSrc}
-                title={`Mapa ${loc.name}`}
+                title={`Map of ${loc.name}`}
                 loading="lazy"
                 referrerpolicy="no-referrer-when-downgrade"
                 allowfullscreen
@@ -69,7 +69,7 @@ const locations = [
                 ))}
               </div>
               <a href={loc.mapsUrl} target="_blank" rel="noopener noreferrer" class="directions-link">
-                Cómo llegar →
+                Get Directions →
               </a>
             </div>
           </div>
