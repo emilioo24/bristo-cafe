@@ -1,0 +1,188 @@
+---
+---
+
+<footer class="footer">
+  <div class="footer-inner">
+    <a
+      href="https://www.instagram.com/bistrocaferest"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="footer-ig"
+    >
+      <div class="footer-ig-icon">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="26"
+          height="26"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.5"
+          aria-hidden="true"
+        >
+          <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+          <circle cx="12" cy="12" r="4"></circle>
+          <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"></circle>
+        </svg>
+      </div>
+      <div class="footer-ig-text">
+        <span class="footer-ig-eyebrow">Síguenos en Instagram</span>
+        <span class="footer-ig-handle">@bistrocaferest</span>
+      </div>
+      <span class="footer-ig-arrow" aria-hidden="true">↗</span>
+    </a>
+
+    <div class="footer-rule"></div>
+
+    <div class="footer-bottom">
+      <span class="footer-brand">Bistro Café</span>
+      <nav class="footer-nav" aria-label="Footer navigation">
+        <a href="#nosotros">Nosotros</a>
+        <a href="#carta">Carta</a>
+        <a href="#galeria">Galería</a>
+        <a href="#ubicacion">Ubicación</a>
+      </nav>
+      <span class="footer-copy">© {new Date().getFullYear()} Bistro Café Miami</span>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    background: var(--espresso);
+    padding: 4rem 2rem 2.5rem;
+  }
+
+  .footer-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .footer-ig {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 2rem 2.5rem;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 10px;
+    margin-bottom: 3rem;
+    transition:
+      border-color 0.3s,
+      background 0.3s;
+  }
+
+  .footer-ig:hover {
+    background: rgba(255, 255, 255, 0.07);
+    border-color: rgba(232, 171, 58, 0.25);
+  }
+
+  .footer-ig-icon {
+    color: var(--golden);
+    flex-shrink: 0;
+  }
+
+  .footer-ig-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    flex: 1;
+    min-width: 0;
+  }
+
+  .footer-ig-eyebrow {
+    font-size: 0.68rem;
+    font-weight: 400;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.35);
+  }
+
+  .footer-ig-handle {
+    font-family: var(--serif);
+    font-size: 1.6rem;
+    font-weight: 400;
+    color: #fff;
+    line-height: 1.2;
+  }
+
+  .footer-ig-arrow {
+    font-size: 1.5rem;
+    color: rgba(255, 255, 255, 0.25);
+    flex-shrink: 0;
+    transition:
+      color 0.25s,
+      transform 0.25s;
+  }
+
+  .footer-ig:hover .footer-ig-arrow {
+    color: var(--golden);
+    transform: translate(4px, -4px);
+  }
+
+  .footer-rule {
+    height: 1px;
+    background: rgba(255, 255, 255, 0.07);
+    margin-bottom: 2rem;
+  }
+
+  .footer-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+  }
+
+  .footer-brand {
+    font-family: var(--serif);
+    font-size: 1.05rem;
+    color: rgba(255, 255, 255, 0.5);
+    font-style: italic;
+  }
+
+  .footer-nav {
+    display: flex;
+    gap: 1.75rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .footer-nav a {
+    font-size: 0.75rem;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.35);
+    transition: color 0.2s;
+  }
+
+  .footer-nav a:hover {
+    color: rgba(255, 255, 255, 0.75);
+  }
+
+  .footer-copy {
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.2);
+  }
+
+  @media (max-width: 640px) {
+    .footer-ig {
+      padding: 1.5rem;
+      gap: 1rem;
+    }
+
+    .footer-ig-handle {
+      font-size: 1.3rem;
+    }
+
+    .footer-bottom {
+      justify-content: center;
+      text-align: center;
+    }
+
+    .footer-copy {
+      width: 100%;
+    }
+  }
+</style>

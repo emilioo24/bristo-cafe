@@ -1,0 +1,263 @@
+---
+// Reemplazar imágenes con fotos reales del Instagram de Bistro Café
+const dishes = [
+  {
+    name: "Tostadas Francesas Locas",
+    desc: "French toast relleno con crema, fresas y sirope de maracuyá. El plato más fotografiado.",
+    img: "https://images.unsplash.com/photo-1484723091739-30a097e8f929?auto=format&fit=crop&w=600&q=80",
+    tag: "Firma",
+  },
+  {
+    name: "Aguacate Relleno",
+    desc: "Aguacate fresco relleno con camarones a la parrilla, pico de gallo y aderezo de cilantro.",
+    img: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=600&q=80",
+    tag: "Popular",
+  },
+  {
+    name: "Waffles de Churro",
+    desc: "Waffles crujientes con canela, dulce de leche y helado de vainilla artesanal.",
+    img: "https://images.unsplash.com/photo-1562376552-0d160a2f238d?auto=format&fit=crop&w=600&q=80",
+    tag: null,
+  },
+  {
+    name: "Mojito Mimosa",
+    desc: "Prosecco, rum, menta fresca y lima. Miami en cada sorbo.",
+    img: "https://images.unsplash.com/photo-1551024739-78b884a97012?auto=format&fit=crop&w=600&q=80",
+    tag: "Bebida",
+  },
+  {
+    name: "Omelette de Churrasco",
+    desc: "Omelette relleno con churrasco a la parrilla, cebolla caramelizada y queso. Con tostones.",
+    img: "https://images.unsplash.com/photo-1482049016688-2d3e1b311543?auto=format&fit=crop&w=600&q=80",
+    tag: null,
+  },
+  {
+    name: "Latte de Pistacho",
+    desc: "Espresso doble con leche cremosa y pasta de pistacho natural. Para repetir.",
+    img: "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=600&q=80",
+    tag: "Café",
+  },
+];
+---
+
+<section class="menu" id="carta">
+  <div class="menu-inner">
+    <div class="menu-header">
+      <span class="label reveal">La Carta</span>
+      <h2 class="reveal reveal-delay-1">Platos que paran el scroll.</h2>
+      <p class="menu-sub reveal reveal-delay-2">
+        Cada plato pensado para que se vea tan bien como sabe.
+      </p>
+    </div>
+
+    <div class="dishes-grid">
+      {
+        dishes.map((dish, i) => (
+          <div class={`dish-card reveal reveal-delay-${(i % 3) + 1}`}>
+            <div class="dish-img">
+              <img src={dish.img} alt={dish.name} loading="lazy" />
+              {dish.tag && <span class="dish-tag">{dish.tag}</span>}
+            </div>
+            <div class="dish-info">
+              <h3>{dish.name}</h3>
+              <p>{dish.desc}</p>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+
+    <div class="menu-footer reveal">
+      <p class="menu-footer-text">También disponible para llevar</p>
+      <div class="menu-footer-links">
+        <a
+          href="https://www.doordash.com/store/bistro-cafe-miami-27483358/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="link-pill"
+        >
+          Pedir en DoorDash ↗
+        </a>
+        <a
+          href="https://www.instagram.com/bistrocaferest"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="link-pill"
+        >
+          Ver más en Instagram ↗
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .menu {
+    background: var(--espresso);
+    padding: 9rem 2rem;
+  }
+
+  .menu-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .menu-header {
+    text-align: center;
+    margin-bottom: 4.5rem;
+  }
+
+  .label {
+    display: inline-block;
+    font-size: 0.68rem;
+    font-weight: 500;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--golden);
+    margin-bottom: 1.25rem;
+  }
+
+  .menu-header h2 {
+    font-family: var(--serif);
+    font-size: clamp(2.2rem, 4.5vw, 3.5rem);
+    font-weight: 400;
+    color: #fff;
+    margin-bottom: 1rem;
+    letter-spacing: -0.01em;
+  }
+
+  .menu-sub {
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.45);
+    max-width: 380px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+
+  .dishes-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+    margin-bottom: 4.5rem;
+  }
+
+  .dish-card {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 6px;
+    overflow: hidden;
+    transition:
+      transform 0.35s ease,
+      border-color 0.35s ease;
+  }
+
+  .dish-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(232, 171, 58, 0.25);
+  }
+
+  .dish-img {
+    position: relative;
+    height: 230px;
+    overflow: hidden;
+  }
+
+  .dish-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.55s ease;
+  }
+
+  .dish-card:hover .dish-img img {
+    transform: scale(1.06);
+  }
+
+  .dish-tag {
+    position: absolute;
+    top: 0.875rem;
+    left: 0.875rem;
+    font-size: 0.62rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    background: var(--golden);
+    color: var(--espresso);
+    padding: 0.28rem 0.7rem;
+    border-radius: 2rem;
+  }
+
+  .dish-info {
+    padding: 1.25rem 1.5rem 1.75rem;
+  }
+
+  .dish-info h3 {
+    font-family: var(--serif);
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #fff;
+    margin-bottom: 0.5rem;
+    line-height: 1.3;
+  }
+
+  .dish-info p {
+    font-size: 0.84rem;
+    line-height: 1.65;
+    color: rgba(255, 255, 255, 0.45);
+  }
+
+  .menu-footer {
+    text-align: center;
+    padding-top: 3rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.07);
+  }
+
+  .menu-footer-text {
+    font-size: 0.72rem;
+    font-weight: 400;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.3);
+    margin-bottom: 1.5rem;
+  }
+
+  .menu-footer-links {
+    display: flex;
+    gap: 0.875rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .link-pill {
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    color: rgba(255, 255, 255, 0.6);
+    padding: 0.65rem 1.5rem;
+    border-radius: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    transition: all 0.25s;
+  }
+
+  .link-pill:hover {
+    color: var(--golden);
+    border-color: rgba(232, 171, 58, 0.4);
+    background: rgba(232, 171, 58, 0.06);
+  }
+
+  @media (max-width: 900px) {
+    .dishes-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 540px) {
+    .menu {
+      padding: 6rem 1.5rem;
+    }
+
+    .dishes-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

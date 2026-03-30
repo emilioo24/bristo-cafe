@@ -1,0 +1,230 @@
+---
+---
+
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="#top" class="nav-logo">Bistro Café</a>
+    <nav class="nav-links">
+      <a href="#nosotros">Nosotros</a>
+      <a href="#carta">La Carta</a>
+      <a href="#galeria">Galería</a>
+      <a href="#ubicacion">Visítanos</a>
+    </nav>
+    <a
+      href="https://www.instagram.com/bistrocaferest"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="nav-cta"
+    >
+      @bistrocaferest
+    </a>
+    <button class="nav-burger" id="navBurger" aria-label="Abrir menú">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+  <a href="#nosotros">Nosotros</a>
+  <a href="#carta">La Carta</a>
+  <a href="#galeria">Galería</a>
+  <a href="#ubicacion">Visítanos</a>
+  <a
+    href="https://www.instagram.com/bistrocaferest"
+    target="_blank"
+    rel="noopener noreferrer"
+    class="mobile-ig"
+  >
+    @bistrocaferest ↗
+  </a>
+</div>
+
+<script>
+  const nav = document.getElementById("nav");
+  const burger = document.getElementById("navBurger");
+  const menu = document.getElementById("mobileMenu");
+
+  window.addEventListener("scroll", () => {
+    nav?.classList.toggle("scrolled", window.scrollY > 60);
+  });
+
+  burger?.addEventListener("click", () => {
+    const isOpen = menu?.classList.toggle("open");
+    burger.classList.toggle("active");
+    menu?.setAttribute("aria-hidden", String(!isOpen));
+  });
+
+  menu?.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => {
+      menu.classList.remove("open");
+      burger?.classList.remove("active");
+      menu.setAttribute("aria-hidden", "true");
+    });
+  });
+</script>
+
+<style>
+  .nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    padding: 1.5rem 2rem;
+    transition:
+      background 0.4s ease,
+      padding 0.4s ease,
+      backdrop-filter 0.4s ease;
+  }
+
+  .nav.scrolled {
+    background: rgba(26, 10, 0, 0.96);
+    padding: 1rem 2rem;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.06);
+  }
+
+  .nav-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+  }
+
+  .nav-logo {
+    font-family: var(--serif);
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #fff;
+    letter-spacing: 0.03em;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+  }
+
+  .nav-links a {
+    font-size: 0.78rem;
+    font-weight: 400;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.65);
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover {
+    color: #fff;
+  }
+
+  .nav-cta {
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    color: var(--golden);
+    border: 1px solid rgba(232, 171, 58, 0.35);
+    padding: 0.45rem 1.1rem;
+    border-radius: 2rem;
+    transition: all 0.25s;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .nav-cta:hover {
+    background: var(--golden);
+    color: var(--espresso);
+    border-color: var(--golden);
+  }
+
+  .nav-burger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 6px;
+    flex-shrink: 0;
+  }
+
+  .nav-burger span {
+    display: block;
+    width: 22px;
+    height: 1.5px;
+    background: #fff;
+    transition: all 0.3s ease;
+    transform-origin: center;
+  }
+
+  .nav-burger.active span:nth-child(1) {
+    transform: translateY(6.5px) rotate(45deg);
+  }
+  .nav-burger.active span:nth-child(2) {
+    opacity: 0;
+    transform: scaleX(0);
+  }
+  .nav-burger.active span:nth-child(3) {
+    transform: translateY(-6.5px) rotate(-45deg);
+  }
+
+  .mobile-menu {
+    position: fixed;
+    inset: 0;
+    background: var(--espresso);
+    z-index: 99;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2.5rem;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+  }
+
+  .mobile-menu.open {
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  .mobile-menu a {
+    font-family: var(--serif);
+    font-size: 2.25rem;
+    font-style: italic;
+    font-weight: 400;
+    color: #fff;
+    transition: color 0.2s;
+  }
+
+  .mobile-menu a:hover {
+    color: var(--golden);
+  }
+
+  .mobile-menu .mobile-ig {
+    font-family: var(--sans);
+    font-size: 0.9rem;
+    font-style: normal;
+    color: var(--golden);
+    margin-top: 0.5rem;
+    letter-spacing: 0.06em;
+  }
+
+  @media (max-width: 768px) {
+    .nav-links,
+    .nav-cta {
+      display: none;
+    }
+
+    .nav-burger {
+      display: flex;
+    }
+  }
+</style>

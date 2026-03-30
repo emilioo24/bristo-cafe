@@ -1,0 +1,237 @@
+---
+const locations = [
+  {
+    name: "Downtown Miami",
+    address: "1352 NE 1st Ave",
+    city: "Miami, FL 33132",
+    phone: "(786) 533-3876",
+    hours: [
+      { days: "Lun — Vie", time: "8:00am – 4:00pm" },
+      { days: "Sáb — Dom", time: "8:00am – 5:00pm" },
+    ],
+    mapsUrl: "https://maps.google.com/?q=1352+NE+1st+Ave+Miami+FL+33132",
+    embedSrc:
+      "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3592.4688474766167!2d-80.19558!3d25.78523!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88d9b6b8ff45b4b7%3A0xb5c3c15cf8a9f37c!2s1352+NE+1st+Ave%2C+Miami%2C+FL+33132!5e0!3m2!1ses!2sus!4v1700000000000",
+  },
+  {
+    name: "Coral Gables",
+    address: "4155 Laguna St",
+    city: "Coral Gables, FL 33146",
+    phone: null,
+    hours: [
+      { days: "Lun — Vie", time: "8:00am – 4:00pm" },
+      { days: "Sáb — Dom", time: "8:00am – 5:00pm" },
+    ],
+    mapsUrl: "https://maps.google.com/?q=4155+Laguna+St+Coral+Gables+FL+33146",
+    embedSrc:
+      "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3594.2!2d-80.27420!3d25.74520!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88d9c77e45b4b7a7%3A0xf5c3c15cf8a9f37c!2s4155+Laguna+St%2C+Coral+Gables%2C+FL+33146!5e0!3m2!1ses!2sus!4v1700000000001",
+  },
+];
+---
+
+<section class="locations" id="ubicacion">
+  <div class="locations-inner">
+    <div class="locations-header reveal">
+      <span class="label">Visítanos</span>
+      <h2>Dos locaciones en Miami.</h2>
+    </div>
+
+    <div class="locations-grid">
+      {
+        locations.map((loc, i) => (
+          <div class={`location-card reveal reveal-delay-${i + 1}`}>
+            <div class="location-map">
+              <iframe
+                src={loc.embedSrc}
+                title={`Mapa ${loc.name}`}
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                allowfullscreen
+              />
+            </div>
+            <div class="location-info">
+              <h3>{loc.name}</h3>
+              <address>
+                <p>{loc.address}</p>
+                <p>{loc.city}</p>
+              </address>
+              {loc.phone && (
+                <a href={`tel:+1${loc.phone.replace(/\D/g, "")}`} class="location-phone">
+                  {loc.phone}
+                </a>
+              )}
+              <div class="location-hours">
+                {loc.hours.map((h) => (
+                  <div class="hours-row">
+                    <span class="hours-days">{h.days}</span>
+                    <span class="hours-time">{h.time}</span>
+                  </div>
+                ))}
+              </div>
+              <a href={loc.mapsUrl} target="_blank" rel="noopener noreferrer" class="directions-link">
+                Cómo llegar →
+              </a>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .locations {
+    padding: 9rem 2rem;
+    background: var(--cream);
+  }
+
+  .locations-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .locations-header {
+    text-align: center;
+    margin-bottom: 4.5rem;
+  }
+
+  .label {
+    display: inline-block;
+    font-size: 0.68rem;
+    font-weight: 500;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--caramel);
+    margin-bottom: 1.25rem;
+  }
+
+  .locations-header h2 {
+    font-family: var(--serif);
+    font-size: clamp(2.2rem, 4.5vw, 3.5rem);
+    font-weight: 400;
+    color: var(--espresso);
+  }
+
+  .locations-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+
+  .location-card {
+    background: #fff;
+    border: 1px solid var(--latte);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: box-shadow 0.35s ease;
+  }
+
+  .location-card:hover {
+    box-shadow: 0 8px 40px rgba(44, 26, 10, 0.1);
+  }
+
+  .location-map {
+    height: 220px;
+    overflow: hidden;
+    background: var(--latte);
+  }
+
+  .location-map iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+    filter: grayscale(20%);
+  }
+
+  .location-info {
+    padding: 2rem 2.25rem 2.5rem;
+  }
+
+  .location-info h3 {
+    font-family: var(--serif);
+    font-size: 1.6rem;
+    font-weight: 500;
+    color: var(--espresso);
+    margin-bottom: 0.875rem;
+  }
+
+  address {
+    font-style: normal;
+    color: var(--text-light);
+    font-size: 0.95rem;
+    line-height: 1.65;
+    margin-bottom: 0.625rem;
+  }
+
+  .location-phone {
+    display: inline-block;
+    font-size: 0.9rem;
+    color: var(--caramel);
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+    transition: color 0.2s;
+  }
+
+  .location-phone:hover {
+    color: var(--coffee);
+  }
+
+  address + .location-hours {
+    margin-top: 1.5rem;
+  }
+
+  .location-hours {
+    border-top: 1px solid var(--latte);
+    border-bottom: 1px solid var(--latte);
+    padding: 1.1rem 0;
+    margin-bottom: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+  }
+
+  .hours-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.88rem;
+  }
+
+  .hours-days {
+    color: var(--text-light);
+    font-weight: 300;
+  }
+
+  .hours-time {
+    font-weight: 500;
+    color: var(--text);
+  }
+
+  .directions-link {
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    color: var(--caramel);
+    transition:
+      color 0.2s,
+      letter-spacing 0.2s;
+  }
+
+  .directions-link:hover {
+    color: var(--coffee);
+    letter-spacing: 0.12em;
+  }
+
+  @media (max-width: 720px) {
+    .locations-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .locations {
+      padding: 6rem 1.5rem;
+    }
+  }
+</style>

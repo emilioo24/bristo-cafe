@@ -1,0 +1,164 @@
+---
+---
+
+<section class="story" id="nosotros">
+  <div class="story-inner">
+    <div class="story-image reveal">
+      <!-- Reemplazar con foto real del local o equipo -->
+      <img
+        src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=900&q=80"
+        alt="Interior Bistro Café Miami"
+        loading="lazy"
+      />
+    </div>
+
+    <div class="story-content">
+      <span class="label reveal">Nuestra historia</span>
+      <h2 class="reveal reveal-delay-1">
+        Más que un café.<br />
+        <em>Una experiencia.</em>
+      </h2>
+      <p class="reveal reveal-delay-2">
+        En 2011, en el corazón de Downtown Miami, Bistro Café abrió sus puertas
+        con una idea simple: hacer los mejores desayunos de la ciudad.
+      </p>
+      <p class="reveal reveal-delay-3">
+        Lo que empezó como un pequeño spot se convirtió en el brunch más
+        fotografiado de Miami. Platos atrevidos, presentaciones que paran el
+        scroll, y ese ambiente único que solo Miami puede dar. Más de
+        <strong>535K seguidores</strong> que no se equivocan.
+      </p>
+
+      <div class="story-stats reveal reveal-delay-4">
+        <div class="stat">
+          <span class="stat-num">2011</span>
+          <span class="stat-label">Fundado</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-num">535K+</span>
+          <span class="stat-label">Seguidores</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-num">2</span>
+          <span class="stat-label">Locaciones</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .story {
+    padding: 9rem 2rem;
+    background: var(--cream);
+  }
+
+  .story-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: center;
+  }
+
+  .story-image img {
+    width: 100%;
+    height: 640px;
+    object-fit: cover;
+    border-radius: 3px;
+  }
+
+  .label {
+    display: inline-block;
+    font-size: 0.68rem;
+    font-weight: 500;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--caramel);
+    margin-bottom: 1.25rem;
+  }
+
+  .story-content h2 {
+    font-family: var(--serif);
+    font-size: clamp(2.5rem, 4vw, 3.75rem);
+    font-weight: 400;
+    line-height: 1.1;
+    color: var(--espresso);
+    margin-bottom: 2rem;
+  }
+
+  .story-content h2 em {
+    font-style: italic;
+    color: var(--caramel);
+  }
+
+  .story-content p {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: var(--text-light);
+    margin-bottom: 1.25rem;
+  }
+
+  .story-content strong {
+    color: var(--text);
+    font-weight: 500;
+  }
+
+  .story-stats {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin-top: 3rem;
+    padding-top: 3rem;
+    border-top: 1px solid var(--latte);
+  }
+
+  .stat {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+
+  .stat-num {
+    font-family: var(--serif);
+    font-size: 2.25rem;
+    font-weight: 600;
+    color: var(--espresso);
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-size: 0.68rem;
+    font-weight: 400;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .stat-divider {
+    width: 1px;
+    height: 3rem;
+    background: var(--latte);
+    flex-shrink: 0;
+  }
+
+  @media (max-width: 900px) {
+    .story-inner {
+      grid-template-columns: 1fr;
+      gap: 3.5rem;
+    }
+
+    .story-image img {
+      height: 420px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .story {
+      padding: 6rem 1.5rem;
+    }
+  }
+</style>
